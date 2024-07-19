@@ -60,12 +60,12 @@ function ThemeColor() {
     <Popover>
   <PopoverTrigger asChild>
   <Button>
-          <Palette className="p-1" /> Theme
+          <Palette className="p-1" /> 
         </Button>
   </PopoverTrigger>
   <PopoverContent>
     <h2 className='mb-2 text-sm font-bold'>Select Theme Color</h2>
-    <div className='grid grid-cols-5 gap-3'>
+    <div className='grid grid-cols-5 gap-2'>
         {colors.map((item,index)=>(
             <div 
             onClick={()=>onColorSelect(item)}

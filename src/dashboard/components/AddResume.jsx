@@ -6,14 +6,16 @@ import { Button } from "@/components/ui/button";
 import { useUser } from "@clerk/clerk-react";
 import { CreateNewResume } from "@/service/GlobalApi";
 import { v4 as uuidv4 } from "uuid";
-import { ToastContainer } from 'react-toastify';
+import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useNavigate } from 'react-router-dom';
 
 const AddResume = () => {
   const [resumeTitle, setResumeTitle] = useState("");
   const [loading, setLoading] = useState(false);
   const { user } = useUser();
   const [error, setError] = useState("");
+  const navigate = useNavigate();
 
   const onCreate = async () => {
     setLoading(true);
@@ -40,6 +42,8 @@ const AddResume = () => {
         setLoading(false);
         // Additional success handling, e.g., close dialog
         console.log('Resume created successfully');
+        toast.success('Resume created successfully');
+        navigate(`/dashboard/resume/${response.data.documentId}/edit`);
       }
     } catch (error) {
       setLoading(false);

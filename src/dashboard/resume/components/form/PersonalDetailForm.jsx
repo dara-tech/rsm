@@ -5,8 +5,7 @@ import { ResumeInfoContext } from "@/context/ResumeInfoContext";
 import { useParams } from "react-router-dom";
 import * as GlobalApi from "@/service/GlobalApi"; 
 import { LoaderCircle } from "lucide-react";
-import { toast, ToastContainer } from "react-toastify";
-import 'react-toastify/dist/ReactToastify.css';
+import { toast } from "sonner";
 
 const PersonalDetailForm = ({ enableNext }) => {
   const { resumeInfo, setResumeInfo } = useContext(ResumeInfoContext);
@@ -118,7 +117,7 @@ const PersonalDetailForm = ({ enableNext }) => {
             {loading ? <LoaderCircle className="animate-spin" /> : "Save"}
           </Button>
         </div>
-      </form>  <ToastContainer />
+      </form>  
     </div>
   );
 };
